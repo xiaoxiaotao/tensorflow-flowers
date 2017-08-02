@@ -7,3 +7,10 @@
 model.py主要是用作定义模型包括卷积模型，评估模型等
 training.py是用来训练的模型
 test.py是用来测试我们训练的网络的
+
+
+
+
+版本：tensorflow 1.2.1
+
+数据：http://download.tensorflow.org/example_images/flower_photos.tgz
