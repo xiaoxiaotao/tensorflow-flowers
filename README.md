@@ -1,4 +1,5 @@
-# tensorflow-flowers
+#此程序参考向北航行大神写的
+
 花朵识别用tensorflow搭建的
 主要识别daisy，dandelion，roses，sunflowers，tulips这五种花。
 程序包含3个文件，input_data.py,model.py,training.py
