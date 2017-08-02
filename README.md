@@ -5,3 +5,4 @@
 其中input_data.py主要是读取数据处理数据
 model.py主要是用作定义模型包括卷积模型，评估模型等
 training.py是用来训练的模型
+test.py是用来测试我们训练的网络的
