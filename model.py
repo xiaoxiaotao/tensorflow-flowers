@@ -4,9 +4,7 @@
 #    - model: build the model architecture
 #    - training: train
 
-# data: cats vs. dogs from Kaggle
-# Download link: https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data
-# data size: ~540M
+
 
 # How to run?
 # 1. run the training.py once
