@@ -113,13 +113,7 @@ def get_batch(image, label, image_W, image_H, batch_size, capacity):
                                                 batch_size= batch_size,
                                                 num_threads= 64, 
                                                 capacity = capacity)
-    
-    #you can also use shuffle_batch 
-#    image_batch, label_batch = tf.train.shuffle_batch([image,label],
-#                                                      batch_size=BATCH_SIZE,
-#                                                      num_threads=64,
-#                                                      capacity=CAPACITY,
-#                                                      min_after_dequeue=CAPACITY-1)
+   
     
     label_batch = tf.reshape(label_batch, [batch_size])
     image_batch = tf.cast(image_batch, tf.float32)
