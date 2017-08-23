@@ -68,7 +68,7 @@ def get_files(path):
                  label_tulips.append(4) 
                
                
-    #print('There are %d cats\nThere are %d dogs' %(len(cats), len(dogs)))
+ 
     
     image_list = np.hstack((daisy,roses,sunflowers,dandelion,tulips))
     label_list = np.hstack((label_daisy,label_roses,label_sunflowers,label_dandelion,label_tulips))
@@ -78,11 +78,8 @@ def get_files(path):
     np.random.shuffle(temp)
     
     image_list = list(temp[:, 0])
-    
     label_list = list(temp[:, 1])
     label_list = [int(i) for i in label_list]
-    
-    
     return image_list, label_list
 
 def get_batch(image, label, image_W, image_H, batch_size, capacity):
@@ -102,22 +99,16 @@ def get_batch(image, label, image_W, image_H, batch_size, capacity):
     image = tf.cast(image, tf.string)
     label = tf.cast(label, tf.int32)
 
-    # make an input queue
+  
     input_queue = tf.train.slice_input_producer([image, label])
-    
     label = input_queue[1]
     image_contents = tf.read_file(input_queue[0])
     image = tf.image.decode_jpeg(image_contents, channels=3)
     
-    ######################################
-    # data argumentation should go to here
-    ######################################
+   
     
     image = tf.image.resize_image_with_crop_or_pad(image, image_W, image_H)
-    
-    # if you want to test the generated batches of images, you might want to comment the following line.
     image = tf.image.per_image_standardization(image)
-    
     image_batch, label_batch = tf.train.batch([image, label],
                                                 batch_size= batch_size,
                                                 num_threads= 64, 
@@ -132,5 +123,4 @@ def get_batch(image, label, image_W, image_H, batch_size, capacity):
     
     label_batch = tf.reshape(label_batch, [batch_size])
     image_batch = tf.cast(image_batch, tf.float32)
-    
     return image_batch, label_batch
